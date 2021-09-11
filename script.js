@@ -2,6 +2,8 @@ const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+let ponto =document.querySelector('#ponto');
+let count = 0;
 
 //função para virar carta
 function flipCard() {
@@ -22,12 +24,16 @@ function flipCard() {
 
 //função que checa se as cartas são iguais
 function checkForMatch() {
+    
     if(firstCard.dataset.card === secondCard.dataset.card) {
-        disableCards();
+        disableCards();        
+        count ++;
+        ponto.innerHTML = count;
         return;
     }
-
     unflipCards();
+    
+    
 }
 
 //função que desabilita as cartas
